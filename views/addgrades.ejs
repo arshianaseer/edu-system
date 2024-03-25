@@ -1,0 +1,112 @@
+<%- include("includes/addheader.ejs") %>
+
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div>
+      <% if (typeof errorsArr != 'undefined') {%>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <strong>Errors!</strong> <br />
+        <% for (let index = 0; index < errorsArr.length; index++) { %>
+        <%=errorsArr[index]%> <br />
+        <%} %>
+      </div>
+      <% } %>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-md-8 col-lg-12 col-xl-12">
+      <form action="/user/grades" method="post">
+        <div class="form-outline mb-2 input">
+          <input
+            type="number"
+            id="form3Example3"
+            name="mids"
+            class="form-control form-control editText"
+            placeholder="Midterm Grade"
+          />
+        </div>
+
+        <div class="form-outline mb-2 input">
+          <input
+            type="number"
+            id="form3Example3"
+            name="finals"
+            class="form-control form-control editText"
+            placeholder="Finals Grade"
+          />
+        </div>
+
+        <div class="form-outline mb-2 input">
+          <input
+            type="number"
+            id="form3Example3"
+            name="assignments"
+            class="form-control form-control editText"
+            placeholder="Assignments Grade"
+          />
+        </div>
+
+        <div class="form-outline mb-2 input">
+          <input
+            type="number"
+            id="form3Example3"
+            name="quizes"
+            class="form-control form-control editText"
+            placeholder="Quizes Grade"
+          />
+        </div>
+
+        <div class="form-outline mb-2 input">
+          <input
+            type="number"
+            id="form3Example3"
+            name="others"
+            class="form-control form-control editText"
+            placeholder="Other Grades"
+          />
+        </div>
+
+        <div class="form-outline mb-2 input">
+          <select
+            id="form3Example3"
+            name="course_id"
+            class="form-control form-control editText"
+          >
+            <% courses.forEach(course => { %>
+            <option value="<%= course.course_id %>">
+              <%= course.course_name %>
+            </option>
+            <% }); %>
+          </select>
+        </div>
+
+        <input
+          type="hidden"
+          id="form3Example3"
+          name="userId"
+          class="form-control form-control editText"
+          value="<%= userData.user_id %>"
+        />
+        <div class="text-center text-lg-start mt-4 pt-2" id="login-assets">
+          <button
+            type="submit"
+            class="btn button"
+            style="text-align: center; margin-right: 2px; width: 15rem"
+          >
+            Submit Grades
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<%- include("includes/footer.ejs") %>

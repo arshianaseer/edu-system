@@ -1,0 +1,61 @@
+<%- include("includes/header.ejs") %>
+
+<div class="col-md-8 col-lg-12 col-xl-4 offset-xl-1">
+  <% if (typeof errorsArr != 'undefined') {%>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      <span class="sr-only">Close</span>
+    </button>
+    <strong>Errors!</strong> <br />
+    <% for (let index = 0; index < errorsArr.length; index++) { %>
+    <%=errorsArr[index]%> <br />
+    <%} %>
+  </div>
+  <% } %>
+</div>
+
+<h1 class="report-head">
+  Grades
+  <a style="float: right; margin-right: 10px" href="/user/grades-form"
+    >&#x2B; ADD</a
+  >
+</h1>
+<div class="table-responsive main-tbl my-4">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Mids</th>
+        <th>Finals</th>
+        <th>Assignments</th>
+        <th>Quizzes</th>
+        <th>Grade</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (typeof userAssignments !== 'undefined' && userAssignments.length >
+      0) { %> <% userAssignments.forEach(grade => { %>
+      <tr>
+        <td><%= grade.course.course_name %></td>
+        <td><%= grade.mids %></td>
+        <td><%= grade.finals %></td>
+        <td><%= grade.assignments %></td>
+        <td><%= grade.quizes %></td>
+        <td><%= grade.grade %></td>
+        <td>
+          <a href="/user/grades/<%= grade.id %>">&#x270E;</a>
+          <a href="/user/grades-delete/<%= grade.id %>">&#128465;</a>
+        </td>
+      </tr>
+      <% }); %> <% } else { %>
+      <tr>
+        <td colspan="7" style="text-align: center">No grades found</td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<%- include("includes/footer.ejs") %>

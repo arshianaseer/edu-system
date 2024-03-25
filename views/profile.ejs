@@ -1,0 +1,72 @@
+<%- include("includes/header.ejs") %>
+<div class="col-md-8 col-lg-12 col-xl-4 offset-xl-1">
+  <% if (typeof errorsArr != 'undefined') {%>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      <span class="sr-only">Close</span>
+    </button>
+    <strong>Errors!</strong> <br />
+    <% for (let index = 0; index < errorsArr.length; index++) { %>
+    <%=errorsArr[index]%> <br />
+    <%} %>
+  </div>
+  <% } %>
+</div>
+
+<h1 class="report-head">Over View</h1>
+
+<div class="report my-4">
+  <div class="container1">
+    <img src="/rectangle1.svg" class="container-image" alt="image" />
+    <div class="text">
+      <p class="int"><%= courses_count %></p>
+      <p class="int-head">Courses</p>
+    </div>
+  </div>
+  <div class="container2">
+    <img src="/rectangle2.svg" alt="image" class="container-image" />
+    <div class="text">
+      <p class="int"><%= assignment_count %></p>
+      <p class="int-head">Assignments</p>
+    </div>
+  </div>
+  <div class="container3">
+    <img src="/rectangle3.svg" alt="image" class="container-image" />
+    <div class="text">
+      <p class="int"><%= grades_count %></p>
+      <p class="int-head">Grades</p>
+    </div>
+  </div>
+</div>
+
+<h1 class="report-head">Upcoming Assignments</h1>
+<div class="table-responsive main-tbl my-4">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Due Date</th>
+        <th>Course Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (typeof userAssignments !== 'undefined' && userAssignments.length >
+      0) { %> <% userAssignments.forEach(assignment => { %>
+      <tr>
+        <td><%= assignment.name %></td>
+        <td><%= assignment.description %></td>
+        <td><%= assignment.due_date.toDateString() %></td>
+        <td><%= assignment.course.course_name %></td>
+      </tr>
+      <% }); %> <% } else { %>
+      <tr>
+        <td colspan="4" style="text-align: center">No assignments found</td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<%- include("includes/footer.ejs") %>

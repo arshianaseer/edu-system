@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Dashboard</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+      integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+      crossorigin="anonymous"
+    />
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/style2.css" />
+
+
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <nav id="sidebar">
+        <div class="sidebar-header" style="display: flex">
+          <img
+            src="https://www.svgrepo.com/show/401214/books.svg"
+            alt="logo"
+            class="logo"
+          />
+          <div id="sidebarCollapse" >
+          <i class="fas fa-align-left"></i>
+          </div>
+        </div>
+
+        <ul class="list-unstyled components">
+          <li class="<% if (isclass == "home") { %> active <% } %>">
+            <a href="/user/profile">
+              <img
+                class="side-icon"
+                src="https://www.svgrepo.com/show/401214/books.svg"
+                alt=""
+              />
+              Dashboard
+            </a>
+          </li>
+          <li class = " <% if (isclass == "courses") { %> active <% } %>">
+            <a href="/user/courses">
+              <img class="side-icon" src="/my books.svg" alt="" />Courses</a
+            >
+          </li>
+          <li class = "<% if (isclass == "assignments") { %> active <% } %>">
+            <a href="/user/assignments">
+              <img class="side-icon" src="/addBooks.svg" alt="" />Assignments</a
+            >
+          </li>
+          <li class = "<% if (isclass == "grades") { %> active <% } %>">
+            <a href="/user/grades">
+              <img class="side-icon" src="/addBooks.svg" alt="" />Grades</a
+            >
+          </li>
+           <li>
+            <a href="/logout">
+              <img class="side-icon" src="/logout.svg" alt="" />Logout</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div id="main">
+        <div class="main-head">
+          <div class="content" id="sidebarUnCollapse">
+            <i class="fas fa-align-left" ></i>
+          </div>
+          <div class="user-name">
+            <p>Welcome <%= userData.name %></p>
+          </div>
+          <div class="main-head-prop">
+
+            <div class="notification">
+              <img src="/notification.svg" alt="search" />
+            </div>
+          </div>
+        </div>

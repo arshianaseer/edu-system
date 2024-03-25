@@ -1,0 +1,89 @@
+<%- include("includes/addheader.ejs") %>
+
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div>
+      <% if (typeof errorsArr != 'undefined') {%>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <strong>Errors!</strong> <br />
+        <% for (let index = 0; index < errorsArr.length; index++) { %>
+        <%=errorsArr[index]%> <br />
+        <%} %>
+      </div>
+      <% } %>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-md-8 col-lg-12 col-xl-12">
+      <form action="/user/courses/<%= course.course_id %>" method="post">
+        <div class="form-outline mb-2 input">
+          <input
+            type="text"
+            id="course_name"
+            name="course_name"
+            class="form-control form-control editText"
+            value="<%= course.course_name %>"
+          />
+        </div>
+
+        <div class="form-outline mb-2 input">
+          <input
+            type="text"
+            id="instructor_name"
+            name="instructor_name"
+            class="form-control form-control editText"
+            value="<%= course.instructor_name %>"
+          />
+        </div>
+
+        <div class="form-outline mb-2 input">
+          <textarea
+            id="description"
+            name="description"
+            class="form-control form-control editText"
+            placeholder="Description"
+          >
+<%= course.description %></textarea
+          >
+        </div>
+
+        <div class="form-outline mb-2 input">
+          <input
+            type="number"
+            id="semester"
+            name="semester"
+            class="form-control form-control editText"
+            value="<%= course.semester %>"
+          />
+        </div>
+
+        <input
+          type="hidden"
+          id="form3Example3"
+          name="userId"
+          class="form-control form-control editText"
+          value="<%= userData.user_id %>"
+        />
+        <div class="text-center text-lg-start mt-4 pt-2" id="login-assets">
+          <button
+            type="submit"
+            class="btn button"
+            style="text-align: center; margin-right: 2px; width: 15rem"
+          >
+            Update Course
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<%- include("includes/footer.ejs") %>

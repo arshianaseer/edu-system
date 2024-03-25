@@ -1,0 +1,47 @@
+<%- include("includes/header.ejs") %>
+
+<div class="col-md-8 col-lg-12 col-xl-4 offset-xl-1">
+  <% if (typeof errorsArr != 'undefined') {%>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      <span class="sr-only">Close</span>
+    </button>
+    <strong>Errors!</strong> <br />
+    <% for (let index = 0; index < errorsArr.length; index++) { %>
+    <%=errorsArr[index]%> <br />
+    <%} %>
+  </div>
+  <% } %>
+</div>
+
+<h1 class="report-head">Your Books</h1>
+
+<div class="table-responsive main-tbl my-4">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Book Name</th>
+        <th>Author Name</th>
+        <th>Total Pages</th>
+        <th>Read Pages</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      <% if (typeof data != 'undefined' && data != "" && data.length > 0) {%> <%
+      for (let index = 0; index < data.length; index++) { %>
+      <tr>
+        <td><%=data[index].bookName%></td>
+        <td><%=data[index].authorName%></td>
+        <td><%=data[index].totalPages%></td>
+        <td><%=data[index].readPages%></td>
+      </tr>
+      <%} %> <% } else { %>
+      <tr>
+        <td colspan="4" style="text-align: center">No data found</td>
+      </tr>
+      <%} %>
+    </tbody>
+  </table>
+</div>
+<%- include("includes/footer.ejs") %>

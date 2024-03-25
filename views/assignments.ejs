@@ -1,0 +1,57 @@
+<%- include("includes/header.ejs") %>
+
+<div class="col-md-8 col-lg-12 col-xl-4 offset-xl-1">
+  <% if (typeof errorsArr != 'undefined') {%>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      <span class="sr-only">Close</span>
+    </button>
+    <strong>Errors!</strong> <br />
+    <% for (let index = 0; index < errorsArr.length; index++) { %>
+    <%=errorsArr[index]%> <br />
+    <%} %>
+  </div>
+  <% } %>
+</div>
+
+<h1 class="report-head">
+  Assignment
+  <a style="float: right; margin-right: 10px" href="/user/assignments-form"
+    >&#x2B; ADD</a
+  >
+</h1>
+
+<div class="table-responsive main-tbl my-4">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Due Date</th>
+        <th>Course Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (typeof userAssignments !== 'undefined' && userAssignments.length >
+      0) { %> <% userAssignments.forEach(assignment => { %>
+      <tr>
+        <td><%= assignment.name %></td>
+        <td><%= assignment.description %></td>
+        <td><%= assignment.due_date.toDateString() %></td>
+        <td><%= assignment.course.course_name %></td>
+        <td>
+          <a href="/user/assignments/<%= assignment.id %>">&#x270E;</a>
+          <a href="/user/assignments-delete/<%= assignment.id %>">&#128465;</a>
+        </td>
+      </tr>
+      <% }); %> <% } else { %>
+      <tr>
+        <td colspan="4" style="text-align: center">No assignments found</td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+<%- include("includes/footer.ejs") %>

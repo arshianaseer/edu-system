@@ -1,0 +1,190 @@
+body {
+  font-family: "Quicksand", sans-serif;
+  background-color: #f6f6f7;
+}
+
+.gradient {
+  background-image: linear-gradient(to right, #27b566, #4b564e);
+}
+
+.login-container {
+  font-size: 1rem;
+  margin: 30px auto;
+  height: 20rem;
+  width: 38rem;
+  border: 0.15rem solid #0000001a;
+  border-radius: 1.3rem;
+}
+
+.button {
+  width: 6rem;
+  height: 2.25rem;
+  background-image: linear-gradient(to right, #27b566, #4b564e);
+  color: white;
+}
+
+form {
+  margin: 2rem auto;
+  border-radius: 10px;
+  background: white;
+  border: 0.15rem solid #0000001a;
+  padding: 2.5rem;
+}
+
+.btn-div {
+  text-align: center;
+}
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.h-custom {
+  height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
+
+.editText {
+  box-shadow: 0 0 10px #00000029;
+  color: #8189b0;
+  font-size: small;
+}
+
+.editText-label {
+  color: #2e3e5c;
+  font-weight: 400;
+  font-size: medium;
+}
+
+#login-asssets .text {
+  color: #2e3e5c;
+  font-size: medium;
+}
+
+.alert {
+  width: 20rem;
+  text-align: center;
+  margin: 10px auto;
+  font-size: small;
+}
+
+.login-head {
+  color: #2e3e5c;
+  font-weight: bold;
+  text-align: center;
+}
+
+.login-head + div > p {
+  color: #8189b0;
+  font-weight: lighter;
+}
+
+.content {
+  visibility: hidden;
+  align-self: center;
+}
+
+#visible {
+  visibility: visible;
+}
+
+#invisible {
+  visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .content {
+    visibility: visible;
+  }
+}
+
+.logo {
+  width: 6rem;
+  height: 6rem;
+  flex: 1;
+}
+
+.report {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.container1 {
+  margin: 0 0 0.5rem 0;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  height: 10rem;
+  background-color: #a04feb;
+}
+
+.container2 {
+  margin: 0 0 0.5rem 0;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  height: 10rem;
+  background-color: #81a5e7;
+}
+
+.container3 {
+  margin: 0 0 0.5rem 0;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20rem;
+  height: 10rem;
+  background-color: #9f2154;
+}
+
+.container-image {
+  align-self: center;
+  width: 8rem;
+  height: 6rem;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+}
+
+.int {
+  font-size: 2rem;
+  color: white;
+  margin-right: 10px;
+}
+
+.int-head {
+  font-size: 0.75rem;
+  color: white;
+  align-self: center;
+}
+
+.report-head {
+  font-size: 1.5rem;
+  margin: 2rem 0 0.5rem 1.5rem;
+  opacity: 0.5;
+}
+
+.input > input {
+  font-size: large;
+  color: grey;
+  background-color: #f6f6f7;
+  opacity: 0.8;
+}
+
+.input {
+  margin: 1.25rem 0;
+}
